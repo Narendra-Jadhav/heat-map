@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HeatmapPage from './pages/HeatMapPage.js';
+import MapWithHeatmapPage from './pages/MapWithHeatMapPage.js';
+import HeatmapLivePage from './pages/HeatmapLivePage.js';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HeatmapPage />} />
+        <Route path="/live" element={<HeatmapLivePage />} />
+        <Route path="/map" element={<MapWithHeatmapPage />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
